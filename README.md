@@ -59,6 +59,6 @@
 * FOR … OF
 * FOR … IN
 
-## SECTION 8, 9: FUNCTIONS
+## SECTION 8, 9, 10: FUNCTIONS
 
 
