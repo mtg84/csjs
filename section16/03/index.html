@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS Is Single Threaded</title>
+
+</head>
+
+<body>
+  <h1>JavaScript Is Single Threaded!</h1>
+ 
+  <p>At any given point in time, that single JS thread is running at most one line of JS code.</p>
+
+
+  <h2>How Asynchronous Callbacks Actually work?</h2>
+  <p>THE BROWSER DOES THE WORK</p>
+  <p>The browser is separate from JS</p>
+  <h3>How?</h3>
+  <p>Browsers come with Web APIs that are able to handle certain tasks in the background <br>
+    (like making requests or setTimeout)</p>
+    
+  <p>The JS call stack recognizes these Web API functions and passes them off to the browser to take care of</p>
+
+  <p>Once the browser finishes those tasks, they return and are pushed on to the stack as a callback</p>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
