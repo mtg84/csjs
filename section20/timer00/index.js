@@ -1,34 +1,59 @@
-class Timer {
-    
-    constructor(durationInput, startButton, pauseButton){
-        this.durationInput = durationInput;
-        this.startButton = startButton;
-        this.pauseButton = pauseButton;
+const durationInput = document.querySelector('#duration');
+const startButton = document.querySelector('#start');
+const pauseButton = document.querySelector('#pause');
 
-        this.startButton.addEventListener('click', this.start);
-        this.pauseButton.addEventListener('click', this.pause);
-        this.durationInput.addEventListener('change', this.onDurationChange);
-    }
+const circle = document.querySelector('circle');
+const perimeter = circle.getAttribute('r') * 2 * Math.PI;
 
-    start(){
-        console.log('Start', this)
-    }
+circle.setAttribute('stroke-dasharray', perimeter);
 
-    pause(){
-        console.log('Pause', this);
-    }
+let currentOffset = 0;
+let duration;
 
-    onDurationChange() {
-        console.log('Change',this);
-    }
+const t1 = new Timer(durationInput, startButton, pauseButton, {
+	onStart(totalDuration) {
+        console.log('Timer has Started');
+        circle.setAttribute('fill', 'transparent');
+		duration = totalDuration;
+	},
 
-    tick(){}
-}
+	onTick(timeRemaining) {
+		console.log('Timer just ticked down');
+		circle.setAttribute('stroke-dashoffset', perimeter * timeRemaining / duration - perimeter);
+	
+	},
 
+	onComplete() {
+        const audio = document.querySelector('audio');
+        audio.play();
+        circle.setAttribute('fill', 'pink');
+	}
+});
 
-const durationInput = document.querySelector('#duration')
-const startButton = document.querySelector('#start')
-const pauseButton = document.querySelector('#pause')
+//t1.start();
 
-const t1 = new Timer(durationInput, startButton, pauseButton);
-t1.start();
+// const printThis = function (){
+//     console.log(this);
+// }
+
+// printThis.call({color:'red'});
+// printThis.bind({color:'red'});
+// printThis.apply({color:'red'});
+
+// printThis();
+
+// const colors = {
+//     printColor(){
+//         console.log(this);
+//     }
+// };
+
+// colors.printColor();
+
+// const randomObject = {
+//     a:1
+// };
+
+// randomObject.printColor = colors.printColor;
+
+// randomObject.printColor();

@@ -1,0 +1,4 @@
+## Research:
+* Bind 
+* Apply
+* Call 
