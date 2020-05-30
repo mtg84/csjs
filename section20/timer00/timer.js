@@ -29,6 +29,7 @@ class Timer {
     
     //without bind
 	start = () => {
+        console.log('eeeeeeeeee')
        if(this.durationInput.value==="0")return;
         if(this.onStart){ 
             this.onStart(this.timeRemaining);
