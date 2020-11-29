@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# videos
+review01/v1.mp4
+review01/v2.mp4
+review01/v3.mp4
+review01/v4.mp4
